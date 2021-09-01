@@ -10,33 +10,34 @@
 
 <body>
     <script>
-        const userInt = (entereDate) => {
+        const error = console.log('Некорректный ввод!');
+
+        const input = (entereDate) => {
             const promptUser = parseInt(prompt(entereDate));
-            const askUser = !isNaN(promptUser) ? promptUser : console.log('Некорректный ввод!')
-            return askUser;
+            return promptUser;
         }
 
-        const num = userInt;
-
-        const result = (num1, num2) => {
-            const sum = num1 + num2;
-            const division = num1 / num2;
+        const action = (numFirst, numSecond) => {
+            const sum = numFirst + numSecond;
+            const division = numFirst / numSecond;
             console.log(`Ответ : ${sum}, ${division}`)
         }
 
-        const main = (num) => {
-            const first = userInt("first number")
-            if (isNaN(first)) {
-                return
-            }
-            const second = userInt("second number")
+        const isCorrectInput = () => {
+            const firstInput = input("first number")
 
-            if (isNaN(second)) {
-                return
+            if (isNaN(firstInput)) {
+                return error
             }
-            return result(first, second);
+
+            const secondInput = input("second number")
+
+            if (isNaN(secondInput)) {
+                return error
+            }
+            return action(firstInput, secondInput);
         }
-        main(num);
+        isCorrectInput();
     </script>
 </body>
 
