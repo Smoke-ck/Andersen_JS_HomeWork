@@ -10,27 +10,26 @@
 
 <body>
     <script>
-        function userInt(entereDate) {
+        function input(entereDate) {
             const promptUser = parseInt(prompt(entereDate));
             return promptUser;
         }
-        const num = userInt;
 
-        function result(num1, num2) {
-            
-            if (isNaN(num1 && num2)) {
+
+        function action(numFirst, numSecond) {
+            if (isNaN(numFirst && numSecond)) {
                 console.log('Некорректный ввод!')
             } else {
-                console.log(parseInt(num1.toString(num2)))
+                console.log(parseInt(numFirst.toString(numSecond)))
             }
         }
 
-        function main(num) {
-            const first = userInt("first number")
-            const second = userInt("second number")
-            return result(first, second);
+        function createUserInput(num) {
+            const firstInput = input("first number")
+            const secondInput = input("second number")
+            return action(firstInput, secondInput);
         }
-        main(num);
+        createUserInput();
     </script>
 </body>
 
