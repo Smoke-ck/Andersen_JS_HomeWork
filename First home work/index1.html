@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function userInt(entereDate) {
+            const promptUser = parseInt(prompt(entereDate));
+            return promptUser;
+        }
+        const num = userInt;
+
+        function result(num1, num2) {
+            
+            if (isNaN(num1 && num2)) {
+                console.log('Некорректный ввод!')
+            } else {
+                console.log(parseInt(num1.toString(num2)))
+            }
+        }
+
+        function main(num) {
+            const first = userInt("first number")
+            const second = userInt("second number")
+            return result(first, second);
+        }
+        main(num);
+    </script>
+</body>
+
+</html>
