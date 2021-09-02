@@ -10,10 +10,10 @@
 
 <body>
     <script>
-        const error = console.log('Некорректный ввод!');
-
-        const input = (entereDate) => {
-            const promptUser = parseInt(prompt(entereDate));
+        const error = () => console.log('Некорректный ввод!');
+		
+        const input = (value) => {
+            const promptUser = parseInt(prompt(value));
             return promptUser;
         }
 
@@ -27,13 +27,13 @@
             const firstInput = input("first number")
 
             if (isNaN(firstInput)) {
-                return error
+                return error();
             }
 
             const secondInput = input("second number")
 
             if (isNaN(secondInput)) {
-                return error
+                return error();
             }
             return action(firstInput, secondInput);
         }
