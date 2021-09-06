@@ -41,7 +41,7 @@ function selectFromInterval(array, firstValue, secondValue) {
 
 
 
-const myIterable = { from: 2, to: 4 };
+const myIterable = { from: 1, to: 5 };
 
 
 function iterableOfObject(object) {
