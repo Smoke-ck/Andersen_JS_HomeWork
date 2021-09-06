@@ -48,21 +48,23 @@ from: 2 ,
 to:6,
 [Symbol.iterator] : function () {
 	const { from, to } = myIterable;
-		if (from > to || isNaN(from) || isNaN(to)) {
-     		throw new Error('Error iteration')
-   		} 
-            	return {
-                	fromValue: this.from,
-                	toValue: this.to,
-                	next()
+			if (from > to || isNaN(from) || isNaN(to)) {
+     			throw new Error('Error iteration')
+   			 	} 
+            return {
+                fromValue: this.from,
+                toValue: this.to,
+                next() {
                 	if (this.fromValue <= this.toValue) {
                         return { done: false, value: this.fromValue++ };
-                    	}
-                    else {
-                       	return { done: true };
                     }
-               	}
+                    else {
+                        return { done: true };
+                    }
+                }
             };
         }};
+
 for(let item of myIterable){
+
 }
