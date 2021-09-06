@@ -43,12 +43,10 @@ function selectFromInterval(array, firstValue, secondValue) {
 
 const myIterable = { from: 1, to: 5 };
 
-const { from, to } = myIterable;
-
-    if (from > to || isNaN(from) || isNaN(to)) {
-        throw new Error('Error iteration')
-    } else {
-        myIterable[Symbol.iterator] = function () {
+const myIterable = { 
+from: 2 ,
+to:6,
+[Symbol.iterator] : function () {
             return {
                 fromValue: this.from,
                 toValue: this.to,
@@ -61,7 +59,10 @@ const { from, to } = myIterable;
                     }
                 }
             };
-        };
-    }
+        }};
+const { from, to } = myIterable;
+if (from > to || isNaN(from) || isNaN(to)) {
+     throw new Error('Error iteration')
+    } 
 for(let item of myIterable){
 }
