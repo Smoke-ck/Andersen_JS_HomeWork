@@ -19,27 +19,20 @@ const makeObjectDeepCopy = (obj) => {
 
 
 
+const error = (value) => { throw new Error(value) };
+
 function selectFromInterval(array, firstValue, secondValue) {
 
     if (!Array.isArray(array)) {
-        throw new Error('Not an array ');
+        error('Not an array ');
     } else if (!Number.isInteger(firstValue) || !Number.isInteger(secondValue)) {
-        throw new Error('Invalid number');
+        error('Invalid number');
     } else if (secondValue < firstValue) {
         ([firstValue, secondValue] = [secondValue, firstValue])
     }
-
-    for (i = 0; i < array.length; i++) {
-        if (isNaN(array[i])) {
-            throw new Error('Invalid number');
-        }
-    }
-
+    array.every((element) => isNaN(element) ? error('Invalid number') : element);
     return array.filter(item => (firstValue <= item && item <= secondValue))
 }
-
-
-
 
 
 
