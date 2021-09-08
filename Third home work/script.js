@@ -1,13 +1,14 @@
-Array.prototype.myFilter = function (callBack, thisArgs) {
-	let result = [];
-	thisArgs = this;
-    thisArgs.forEach( (element) => {
-        if (callBack.call(thisArgs[element], element,thisArgs)) {
-            result = [...result,element]
-        }
-    });  
+Array.prototype.myFilter = function (callBack, thisArgs = this) {
+	
+ let result = thisArgs.reduce((total, element,index,thisArgs) => {
+  if (callBack.call(index,element,thisArgs)) {
+    total = [...total,element];
+  }
+  return total;
+}, []);
   return result;
 }
+
 
 function createDebounceFunction(callback, timeInMs) {
 
