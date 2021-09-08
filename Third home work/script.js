@@ -1,12 +1,9 @@
 Array.prototype.myFilter = function (callBack, thisArgs = this) {
-	
- let result = thisArgs.reduce((total, element,index,thisArgs) => {
-  if (callBack.call(index,element,thisArgs)) {
-    total = [...total,element];
-  }
-  return total;
-}, []);
-  return result;
+  
+ return thisArgs.reduce((acc,element,index,array) => callBack(element,index.array) 
+	?  [...acc,element]
+        : acc ,  
+	[]);
 }
 
 
