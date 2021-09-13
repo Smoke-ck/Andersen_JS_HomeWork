@@ -6,7 +6,7 @@ function concatStrings(firstValue, separator = "") {
 
     const deepConcat = function (subValues) {
     
-        if (typeof subValues !== 'string' ) {
+        if (checkString(subValues)) {
             return firstValue
         } else {
             return concatStrings(firstValue.concat(separator, subValues), separator);
