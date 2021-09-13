@@ -11,7 +11,7 @@ function concatStrings(firstValue, separator = "") {
             return concatStrings(firstValue.concat(separator, subValues), separator);
         }
     };
-    deepConcat.toString = () => { return firstValue; };
+    deepConcat.toString = () => { return `"${firstValue}"` };
     return deepConcat;
 }
 
