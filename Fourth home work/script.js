@@ -5,15 +5,17 @@ function concatStrings(firstValue, separator = "") {
     firstValue = (checkString(firstValue) ? firstValue = "" : firstValue);
 
     const deepConcat = function (subValues) {
-        if (checkString(subValues)) {
-            return concatStrings(firstValue + "")
+    
+        if (typeof subValues !== 'string' ) {
+            return firstValue
         } else {
             return concatStrings(firstValue.concat(separator, subValues), separator);
         }
     };
-    deepConcat.toString = () => { return `"${firstValue}"` };
+    deepConcat.toString = () => { return firstValue };
     return deepConcat;
 }
+
 
 
 class Calculator {
