@@ -1,4 +1,4 @@
-function concatStrings(firstValue, separator = '') {
+function concatStrings(firstValue, separator = "") {
     const checkString = (element) => (typeof element !== "string" || undefined);
     
     separator = (checkString(separator) ? separator = "" : separator)
@@ -6,7 +6,7 @@ function concatStrings(firstValue, separator = '') {
 
     const deepConcat = function (subValues) {
         if (checkString(subValues)) {
-            return concatStrings(firstValue + '')
+            return concatStrings(firstValue + "")
         } else {
             return concatStrings(firstValue.concat(separator, subValues), separator);
         }
