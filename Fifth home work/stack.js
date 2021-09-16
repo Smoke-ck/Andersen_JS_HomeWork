@@ -1,13 +1,15 @@
+
 class Stack {
-    constructor(maxSizeStack = 10) {
-        this.checkNumber(maxSizeStack, 'Invalid number')
-        this.maxSizeStack = maxSizeStack;
-        this.curSizeStack = 0;
+    constructor(maxSize = 10) {
+        this.checkNumber(maxSize, 'Invalid number')
+        this.maxSize = maxSize;
+        this.curSize = 0;
         this.topElement;
     }
     push(element) {
-
-        if (this.curSizeStack == this.maxSizeStack) { this.error('Stack is full') }
+        if (this.curSize == this.maxSize) {
+            this.error('Stack is full')
+        }
         const data = {
             element,
             previos: null,
@@ -19,32 +21,42 @@ class Stack {
             data.previos = this.topElement;
             this.topElement = data;
         }
-        this.curSizeStack += 1;
+        this.curSize += 1;
     }
     pop() {
-        if (this.isEmpty()) { this.error('Stack is empty') }
+        if (this.isEmpty()) {
+            this.error('Stack is empty')
+        }
         const popElement = this.topElement;
         this.topElement = popElement.previos;
-        this.curSizeStack -= 1;
+        this.curSize -= 1;
         return popElement.element;
     }
     peek() {
-        if (this.isEmpty()) { return null; }
-        else {
+        if (this.isEmpty()) {
+            return null;
+        } else {
             return this.topElement.element;
         }
     }
     isEmpty() {
-        return this.curSizeStack == 0;
+        return this.curSize == 0;
     }
     toArray() {
 
-        const array = [...JSON.stringify(this.topElement).replace(/\D/g, "")].map(Number)
+        const array = [];
+        let arrayElement = this.topElement;
+
+        do {
+            array.push(arrayElement.element)
+            arrayElement = arrayElement.previos;
+        } while (arrayElement);
+
         return array.reverse();
     }
     static fromIterable(iterable) {
         const elements = [...iterable]
-        const stack = new Stack(elements.length,);
+        const stack = new Stack();
         for (let i of elements) {
             stack.push(i);
         }
