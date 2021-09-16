@@ -50,7 +50,6 @@ class Stack {
     }
 
     toArray() {
-
         const array = [];
         let arrayElement = this.topElement;
         do {
