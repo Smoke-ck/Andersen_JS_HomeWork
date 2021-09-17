@@ -33,15 +33,13 @@ class LinkedList {
     }
 
        find(elem) {
-
         let current = this.head;
         do {
           if (elem === current.elem) {
                 return current;
             }
             current = current.next;
-        } while (current) 
-            
+        } while (current)     
         return null;
     }
 
