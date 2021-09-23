@@ -40,7 +40,7 @@ class Calculator {
       if (isNaN(prev) || isNaN(current)) return
      
       switch (this.operation) {
-                case '+':
+        case '+':
           action = prev + current
           break
         case '-':
@@ -69,7 +69,7 @@ class Calculator {
       }
     }
     
-   output(number) {
+  output(number) {
       const stringNumber = number.toString();
       if (stringNumber != null) {
       let numOutput = number.toLocaleString('ru', {maximumFractionDigits: 8 });
@@ -78,6 +78,10 @@ class Calculator {
         return stringNumber
       }
     }
+    
+  reverse() {
+    return this.currentElem = this.currentElem * -1
+  }
   }
   
   const numberButtons = document.querySelectorAll('.number');
@@ -87,6 +91,7 @@ class Calculator {
   const clear = document.querySelector('.clear');
   const previousNumber= document.querySelector('.previousNumber');
   const currentNumber = document.querySelector('.currentNumber');
+  const reverseNum = document.querySelector('.operation-reverse');
   
   const calculator = new Calculator(previousNumber, currentNumber);
   
@@ -103,7 +108,7 @@ class Calculator {
       calculator.render()
     });
   });
-  
+ 
   result.addEventListener('click', button => {
     calculator.action()
     calculator.render()
@@ -116,5 +121,10 @@ class Calculator {
   
   deleteBtn.addEventListener('click', button => {
     calculator.delete()
+    calculator.render()
+  });
+
+  reverseNum.addEventListener('click', button => {
+    calculator.reverse()
     calculator.render()
   });
